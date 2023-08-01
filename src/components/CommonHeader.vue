@@ -5,7 +5,7 @@
       <!-- 图标的展示 -->
       <el-button size="small" plain @click="handleCollapse">
         <el-icon :size="20">
-          <Menu />
+          <Menu></Menu>
         </el-icon>
       </el-button>
       <el-breadcrumb separator="/" class="bread">
@@ -82,6 +82,7 @@ header {
   width: 100%;
   background: #333;
 }
+
 .r-content {
   .user {
     width: 40px;
@@ -89,16 +90,20 @@ header {
     border-radius: 50%;
   }
 }
+
 .l-content {
   display: flex;
   align-items: center;
+
   .el-button {
     margin-right: 20px;
   }
+
   h3 {
     color: #fff;
   }
 }
+
 // .bread /deep/ span {
 //   color: #fff !important;
 //   cursor: pointer !important;

@@ -1,5 +1,7 @@
 import { createStore } from 'vuex'
 import Cookie from 'js-cookie'
+
+
 export default createStore({
   state: {
     isCollapse: true,
@@ -49,19 +51,22 @@ export default createStore({
       state.menu = menu
 
       const menuArray = []
+      const modules = import.meta.glob('../views/*/*.vue')
 
       menu.forEach(item => {
         if (item.children) {
           item.children = item.children.map(item => {
             let url = `../views/${item.url}.vue`
 
-            item.component = () => import(url)
+            // item.component = () => import(url)
+            item.component = modules[url];
             return item
           })
           menuArray.push(...item.children)
         } else {
           let url = `../views/${item.url}.vue`
-          item.component = () => import(url)
+          // item.component = () => import(url)
+          item.component = modules[url];
           menuArray.push(item)
         }
       })
